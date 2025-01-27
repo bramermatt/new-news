@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Aggregator</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <meta name="color-scheme" content="light dark"/>
+
+</head>
+<body>
+
+    <article>
+
+
+    <div class="header">
+        <button id="filter-button"><i class="fas fa-filter"></i> <!-- Filter -->
+        </button>
+        <button id="search-button"><i class="fas fa-search"></i> <!-- Search -->
+        </button>
+        <button id="generate-news"><i class="fas fa-sync-alt"></i> 
+        <!-- Generate News -->
+        </button>
+
+        <div id="filter-container" style="display: none;">
+            <label for="category">Category:</label>
+            <select id="category">
+            <option value="all">All</option>
+            <option value="business">Business</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="general">General</option>
+            <option value="health">Health</option>
+            <option value="science">Science</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+            <option value="foxnews">Fox News</option>
+            <option value="quanta">Quanta</option>
+            </select>
+        </div>
+    
+        <div id="search-container" style="display: none;">
+            <label for="search">Search:</label>
+            <input type="text" id="search" placeholder="Search for news...">
+        </div>
+        
+    </div>
+
+    
+
+
+        <div id="news-container"></div>
+        
+
+
+    </article>
+
+
+    <div class="footer">
+        <div id="pagination-container" class="pagination-container"></div>
+    </div>
+   
+
+</body>
+
+<script src="newsFilter.js"></script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox News RSS Feed</title>
+</head>
+<body>
+    <h1>Fox News RSS Feed</h1>
+    <div id="rss-feed"></div>
+
+    <script>
+        async function fetchRSSFeed() {
+            const response = await fetch('https://feeds.foxnews.com/foxnews/latest');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(text, 'application/xml');
+            const items = xml.querySelectorAll('item');
+            let html = '';
+
+            items.forEach(item => {
+                const title = item.querySelector('title').textContent;
+                const link = item.querySelector('link').textContent;
+                const description = item.querySelector('description').textContent;
+                html += `
+                    <div>
+                        <h2><a href="${link}" target="_blank">${title}</a></h2>
+                        <p>${description}</p>
+                    </div>
+                `;
+            });
+
+            document.getElementById('rss-feed').innerHTML = html;
+        }
+
+        fetchRSSFeed();
+    </script>
+</body>
+</html>
